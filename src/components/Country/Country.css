@@ -1,0 +1,28 @@
+.country1{
+
+    border: 1px solid #e21010;
+    margin:20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.country1 h3 {
+    color: #500092;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+/* .country1:hover {
+    background-color: #cfb8c0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+} */
+.not-visited {
+    background-color: #f0f0f0;
+    color: #888;
+}
+
+.country-visited {
+    background-color: #00ff22;
+    color: #000000;
+}
