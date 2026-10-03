@@ -1,28 +1,17 @@
-.country1{
-
-    border: 1px solid #e21010;
-    margin:20px;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-}
-
-.country1 h3 {
-    color: #500092;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-/* .country1:hover {
-    background-color: #cfb8c0;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-} */
-.not-visited {
-    background-color: #f0f0f0;
-    color: #888;
-}
-
-.country-visited {
-    background-color: #00ff22;
-    color: #000000;
-}
+.country-card { min-width: 0; padding: 15px; border: 1px solid #e9e8e1; border-radius: 5px; background: #fffefa; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.country-card:hover { transform: translateY(-3px); border-color: #d6dccd; box-shadow: 0 12px 30px #26311b0b; }
+.country-card.is-visited { border-color: #cdd7c4; background: #fcfdf8; }
+.country-card-top { display: flex; align-items: center; justify-content: space-between; min-height: 27px; }
+.country-region { color: #8b9186; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.visit-button { display: inline-flex; align-items: center; gap: 6px; padding: 5px 8px; border: 1px solid #e7e8e0; border-radius: 3px; color: #858a80; background: transparent; cursor: pointer; font-size: 9px; transition: all .18s ease; }
+.visit-button span { display: grid; place-items: center; width: 13px; height: 13px; border-radius: 50%; color: #68745e; background: #edf0e8; font-size: 10px; }
+.visit-button:hover { border-color: #b4c2a8; color: var(--green-dark); }.visit-button.is-visited { border-color: #d2dcc9; color: #4d6745; background: #f0f3eb; }
+.flag-wrap { height: 145px; display: grid; place-items: center; margin: 12px 0 15px; overflow: hidden; border-radius: 3px; background: #f1f1eb; }
+.flag-wrap img { width: 100%; height: 100%; object-fit: cover; }.flag-fallback { color: #a0ab93; font-size: 40px; }
+.country-name-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.country-name-row h3 { overflow: hidden; max-width: 100%; margin: 0; color: #283026; font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -.3px; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.country-capital { overflow: hidden; margin: 4px 0 0; color: #959990; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.country-arrow { color: #a4ad9c; font-size: 15px; }
+.country-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; padding-top: 13px; border-top: 1px solid #eeede7; }
+.country-facts div { display: grid; gap: 4px; }.country-facts span { color: #a0a39b; font-size: 8px; font-weight: 700; letter-spacing: .85px; }.country-facts strong { overflow: hidden; color: #4a5146; font-size: 11px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }.country-facts small { color: #94998f; font-size: 9px; font-weight: 400; }
+@media (max-width: 560px) { .country-card { padding: 13px; }.flag-wrap { height: 170px; } }

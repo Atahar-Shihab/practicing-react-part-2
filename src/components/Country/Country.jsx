@@ -1,39 +1,27 @@
-import React from 'react';
 import './Country.css'
 
-import {useState} from 'react';
-let count_visited = 0;
-const Country = ({ country,handleVisitedCountries }) => {
-    const handleVisited = () =>
-        {
-            if(!visited){
-            count_visited++;
-            }
-            else if(visited){
-                count_visited--;
-            }
-            setVisited(!visited)
-            handleVisitedCountries(count_visited);
-            
-    
-        
-    }
+const format = new Intl.NumberFormat('en-US')
 
-      const [visited,setVisited] = useState(false);
-    if(country.name.common !== "Israel"){
+const Country = ({ country, visited, onToggleVisited }) => (
+  <article className={`country-card ${visited ? 'is-visited' : ''}`}>
+    <div className="country-card-top">
+      <span className="country-region">{country.region}</span>
+      <button className={`visit-button ${visited ? 'is-visited' : ''}`} onClick={onToggleVisited} aria-pressed={visited} aria-label={`${visited ? 'Remove' : 'Mark'} ${country.name} ${visited ? 'from' : 'as'} visited`}>
+        <span aria-hidden="true">{visited ? '✓' : '+'}</span>{visited ? 'Visited' : 'Save place'}
+      </button>
+    </div>
+    <div className="flag-wrap">
+      {country.flag ? <img src={country.flag} alt={country.flagAlt} loading="lazy" /> : <span className="flag-fallback" aria-label="Flag unavailable">✳</span>}
+    </div>
+    <div className="country-name-row">
+      <div><h3>{country.name}</h3><p className="country-capital">{country.capital}</p></div>
+      <span className="country-arrow" aria-hidden="true">↗</span>
+    </div>
+    <div className="country-facts">
+      <div><span>POPULATION</span><strong>{format.format(country.population)}</strong></div>
+      <div><span>AREA</span><strong>{format.format(country.area)} <small>km²</small></strong></div>
+    </div>
+  </article>
+)
 
-    return (
-        <div className={`country1 ${visited ? "country-visited" : "country1"}`}>
-            <h3>Country Name: {country.name.common === "Israel"? "Avoid" : country.name.common} </h3>
-        <img src={country.name.common === "Israel"? "Avoid" : country.flags.flags.png} alt={country.flags.flags.alt} />
-        <p>Population: {country.name.common === "Israel"? "Avoid":country.population.population}</p>
-        <p>Region: {country.region.region}</p>
-        <h3>Country Code: {country.ccn3.ccn3}</h3>
-        <p>Capital: {country.capital.capital}</p>
-        <p>Area: {country.area.area} sq km</p>
-
-        <button  className={visited ? "country-visited" : "not-visited"} onClick={handleVisited}>{visited ? "visited" :"Not Visited"}</button>
-        </div>
-    );}
-};
-export default Country;
+export default Country

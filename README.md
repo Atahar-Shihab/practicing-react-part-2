@@ -1,16 +1,56 @@
-# React + Vite
+# Atlas — Country Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Atlas is a small, responsive country directory built as a React practice project. Browse country flags and quick facts, search by country or capital, filter by region, and save the places you have visited.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search countries by name, capital, or region
+- Filter the directory by region
+- View a country’s flag, capital, population, and area
+- Mark countries as visited; your list is saved in browser local storage
+- Responsive layout for desktop, tablet, and mobile
+- Loading, error, and no-results states
 
-## React Compiler
+Country data is loaded from the [Programming Hero Countries API](https://openapi.programming-hero.com/api/all). An internet connection is needed to load the directory.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run locally
 
-## Expanding the Oxlint configuration
+You will need [Node.js](https://nodejs.org/) and npm installed.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite in your terminal.
+
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Check the project with Oxlint |
+
+## Project structure
+
+```text
+src/
+├── components/
+│   ├── Country/       # Country card and its styles
+│   └── countries/     # Data loading, search, filters, and directory layout
+├── App.jsx            # Page layout and hero section
+├── App.css            # Page and hero styles
+├── index.css          # Global styles and design tokens
+└── main.jsx           # React entry point
+```
+
+## Built with
+
+- React 19
+- Vite
+- Plain CSS
+- Programming Hero Countries API
+
+Visited country IDs are stored in your browser under `atlas-visited-countries`. Clearing that browser storage resets the visited list.
